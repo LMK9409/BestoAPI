@@ -32,6 +32,8 @@ public class MainController {
 			String res=gson.toJson(list);
 			System.out.println(res);
 			PrintWriter out = response.getWriter();
+			
+			
 			out.println(res);
 
 		} catch (IOException e) {
