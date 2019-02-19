@@ -9,4 +9,7 @@ public interface BestoService {
 //	public BoardVO svcAdminBoardDetail(int bseq);
 //	public ArrayList<BoardReplyVO> svcAdminReplySelect(int bseq);
 	public ArrayList<RankVO> ranklist();
+	public ArrayList<MatchVO> matchlist();
+	public ArrayList<VsVO> vsinfo();
+	
 }

@@ -17,25 +17,17 @@ public  class BestoServiceImpl implements BestoService {
 	public ArrayList<RankVO> ranklist(){
 		return bestomapper.select();
 	}
-//	@Autowired
-//	BoardMapper boardMapper;
-//	
-//	public int svcAdminBoardInsert(BoardVO boardVO){
-//		return boardMapper.binsert(boardVO);
-//	}
-//	public ArrayList<BoardVO> svcAdminBoardList(){
-//		return boardMapper.select();
-//	}
-//	public ArrayList<BoardReplyVO> svcAdminReplyInsert(BoardReplyVO boardReplyVO) {
-//		boardMapper.rinsert(boardReplyVO);
-//		return boardMapper.rselect(boardReplyVO.getBseq());
-//	}
-//	
-//	public BoardVO svcAdminBoardDetail(int bseq) {
-//		return boardMapper.bdetail(bseq);
-//	}
-//	public ArrayList<BoardReplyVO> svcAdminReplySelect(int bseq) {
-//		return boardMapper.rselect(bseq);
-//	}
+
+	@Override
+	public ArrayList<MatchVO> matchlist() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<VsVO> vsinfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
