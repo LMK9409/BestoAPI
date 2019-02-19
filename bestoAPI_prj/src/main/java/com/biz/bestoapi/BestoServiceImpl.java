@@ -14,20 +14,23 @@ public  class BestoServiceImpl implements BestoService {
 	@Autowired
 	BestoMapper bestomapper;
 	
+	
+	@Override
 	public ArrayList<RankVO> ranklist(){
 		return bestomapper.select();
 	}
 
-	@Override
-	public ArrayList<MatchVO> matchlist() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public ArrayList<VsVO> vsinfo() {
+	public ArrayList<MatchVO> matchList() {
 		// TODO Auto-generated method stub
-		return null;
+		return bestomapper.matchList();
 	}
+
+
+
+
+
+
 
 }

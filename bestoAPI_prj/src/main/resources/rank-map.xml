@@ -23,9 +23,54 @@
       <result property="recent10games"    column="RECENT10GAMES" />
    </resultMap>
    
+   
+   
+<resultMap id="match_11" type="com.biz.bestoapi.MatchVO" extends="matchMap">
+      <association property="vicVO" resultMap="vicMap"></association>
+      <association property="recVO" resultMap="recMap"></association>
+   </resultMap>
+
+   <resultMap id="matchMap" type="com.biz.bestoapi.MatchVO">
+      <id property="matchSeq" column="MATCH_SEQ" />
+      <result property="matchStarttime" column="MATCH_STARTTIME" />
+      <result property="matchHometeam" column="MATCH_HOMETEAM" />
+      <result property="matchAwayteam" column="MATCH_AWAYTEAM" />
+      <result property="matchStadium" column="MATCH_STADIUM" />
+   </resultMap>
+   
+   <resultMap id="vicMap" type="com.biz.bestoapi.VicVO">
+
+      <result property="victoryrateWin" column="VICTORYRATE_WIN" />
+      <result property="victoryrateDraw" column="VICTORYRATE_DRAW" />
+      <result property="victoryrateLose" column="VICTORYRATE_LOSE" />
+
+   </resultMap>
+
+      <resultMap id="recMap" type="com.biz.bestoapi.RecVO">
+  
+      <result property="recoderate00" column="RECODERATE_00" />
+      <result property="recoderate10" column="RECODERATE_10" />
+      <result property="recoderate20" column="RECODERATE_20" />
+      <result property="recoderate11" column="RECODERATE_11" />
+      <result property="recoderate22" column="RECODERATE_22" /> 
+      <result property="recoderate01" column="RECODERATE_01" /> 
+      <result property="recoderate02" column="RECODERATE_02" /> 
+   </resultMap>
+
+   
     <select id="select" resultMap="RankMap">
           select * from rankdata
     </select>
+    
+    <select id="matchList" resultMap="match_11">
+          select m.match_seq,m.match_hometeam,m.match_awayteam,m.match_stadium,m.match_starttime,
+						r.recoderate_00,r.recoderate_01,r.recoderate_02,r.recoderate_10,r.recoderate_11,r.recoderate_20,r.recoderate_22,
+            v.victoryrate_win,v.victoryrate_draw,v.victoryrate_lose
+			from matchdata m, recoderate r, victoryrate v
+			where m.match_seq=r.match_seq 
+						and m.match_seq = v.match_seq
+			order by m.match_starttime desc
+    </select>
 
    
-</mapper>   
+</mapper>  
