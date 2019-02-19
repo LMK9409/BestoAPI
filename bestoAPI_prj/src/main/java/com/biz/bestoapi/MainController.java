@@ -33,16 +33,29 @@ public class MainController {
 			ArrayList<RankVO> list = bestoService.ranklist();
 			String res=gson.toJson(list);
 			System.out.println(res);
+			
 			PrintWriter out = response.getWriter();
-			
-			
 			out.println(res);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 
 	}
+	
+//	@RequestMapping(value="/alist.do", method = RequestMethod.GET)
+//	public ModelAndView rankList() {
+//		ModelAndView mav = new ModelAndView();	
+//		ArrayList<RankVO> list = bestoService.ranklist();
+//		mav.addObject("KEY_LIST", list);
+//		mav.setViewName("board_manager_game_create");
+//		return mav;
+//		
+////			String res=gson.toJson(list);
+////			System.out.println(res);
+////			PrintWriter out = response.getWriter();
+////			out.println(res);
+//	}
+	
 }
