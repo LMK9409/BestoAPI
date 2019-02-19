@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  
+<mapper namespace="userNameSpace"> 
+<mapper namespace="com.biz.mapper.UserMap">
+-->
+<mapper namespace="com.biz.mapper.BestoMapper">
+   <resultMap id="RankMap" type="com.biz.bestoapi.RankVO">
+      <id       property="teamSeq"       column="TEAM_SEQ" />
+      <result property="rank"       column="RANK" />
+      <result property="team"    column="TEAM" />
+      <result property="matchcount"       column="MATCHCOUNT" />
+      <result property="winpoint"    column="WINPOINT" />
+      <result property="win"    column="WIN" />
+      <result property="tie"       column="TIE" />
+      <result property="loss"       column="LOSS" />
+      <result property="goalall"          column="GOALALL" />
+      <result property="goalavg"          column="GOALAVG" />
+      <result property="lossall"       column="LOSSALL" />
+      <result property="lossavg"    column="LOSSAVG" />
+      <result property="goaldifference"    column="GOALDIFFERENCE" />
+      <result property="recent10games"    column="RECENT10GAMES" />
+   </resultMap>
+   
+    <select id="select" resultMap="RankMap">
+          select * from rankdata
+    </select>
+
+   
+</mapper>   

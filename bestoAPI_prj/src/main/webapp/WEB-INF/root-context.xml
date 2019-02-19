@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!--  ***************************** C O N T E X T *****************************  -->
+	<context:component-scan base-package="com.biz.**" />
+
+
+	<context:property-placeholder location="classpath:*.properties" />
+
+	<!--  ***************************** O R M (DBCP & MYBATIS) *****************************  -->
+	<!-- datasource - dataSourceSpied -->
+	<bean id="kosmoDS_orignal" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="${driver}" />
+	    <property name="url" 		value="${url}" />
+	    <property name="username" 	value="${id}" />
+	    <property name="password" 	value="${pw}" />
+	</bean>
+	
+	<!-- Mybatis Log -->
+	<bean id="kosmoDS" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="kosmoDS_orignal" />
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+                <property name="sqlPrefix" value="SQL : "/>
+            </bean>
+        </property>
+    </bean>
+
+	
+	<!-- DBCP -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="kosmoDS"/>
+		<property name="configLocation" value="classpath:config-mybatis.xml"/>
+		<property name="mapperLocations" value="classpath:*-map.xml"/>
+		<!-- <property name="transactionFactory">
+			<bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+		</property> -->
+	</bean>
+	
+	<!-- factory.openSession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!--  ***************************** T R A N S A C T I O N *****************************  -->
+	<!--  transaction Manager -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="kosmoDS" />
+	</bean>
+	
+	
+	
+	
+	<!-- MapperInterface.java 사용 시 -->
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.biz.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean> 
+	 
+	
+	
+	
+
+</beans>
