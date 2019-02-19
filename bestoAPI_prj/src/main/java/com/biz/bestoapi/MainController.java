@@ -27,6 +27,8 @@ public class MainController {
 	@RequestMapping(value="/alist.do", method = RequestMethod.GET)
 	public void rankList(HttpServletRequest request,HttpServletResponse response) {
 		try {
+			response.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("UTF-8");
 			Gson gson = new Gson();
 			ArrayList<RankVO> list = bestoService.ranklist();
 			String res=gson.toJson(list);
