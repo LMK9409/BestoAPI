@@ -2,32 +2,33 @@ package com.biz.bestoapi;
 
 public class VicVO {
 	int matchSeq;
-	int victoryrateWin;
-	int victoryrateDraw;
-	int victoryrateLose;
+	Float victoryrateWin;
+	Float victoryrateDraw;
+	Float victoryrateLose;
 	public int getMatchSeq() {
 		return matchSeq;
 	}
 	public void setMatchSeq(int matchSeq) {
 		this.matchSeq = matchSeq;
 	}
-	public int getVictoryrateWin() {
+	public Float getVictoryrateWin() {
 		return victoryrateWin;
 	}
-	public void setVictoryrateWin(int victoryrateWin) {
+	public void setVictoryrateWin(Float victoryrateWin) {
 		this.victoryrateWin = victoryrateWin;
 	}
-	public int getVictoryrateDraw() {
+	public Float getVictoryrateDraw() {
 		return victoryrateDraw;
 	}
-	public void setVictoryrateDraw(int victoryrateDraw) {
+	public void setVictoryrateDraw(Float victoryrateDraw) {
 		this.victoryrateDraw = victoryrateDraw;
 	}
-	public int getVictoryrateLose() {
+	public Float getVictoryrateLose() {
 		return victoryrateLose;
 	}
-	public void setVictoryrateLose(int victoryrateLose) {
+	public void setVictoryrateLose(Float victoryrateLose) {
 		this.victoryrateLose = victoryrateLose;
 	}
+
 	
 }

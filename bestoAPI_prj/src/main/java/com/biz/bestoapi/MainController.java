@@ -37,7 +37,7 @@ public class MainController {
 			response.setCharacterEncoding("UTF-8");
 			request.setCharacterEncoding("UTF-8");
 			Gson gson = new Gson();
-			ArrayList<RankVO> list = bestoService.ranklist();
+			ArrayList<MatchVO> list = bestoService.matchList();
 			String res=gson.toJson(list);
 			System.out.println(res);
 			

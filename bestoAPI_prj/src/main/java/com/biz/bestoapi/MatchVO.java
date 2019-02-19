@@ -1,29 +1,34 @@
 package com.biz.bestoapi;
 
 public class MatchVO {
+	
+	
+	
 	private int matchSeq;
-	private int gameSeq;
 	private String matchStarttime;
 	private String matchHometeam;
 	private String matchAwayteam;
-	private String matchVsrecord;
 	private String matchStadium;
 	private String matchStatus;
-	private int userSeq;
-	private RankVO rankVO;
+	private VicVO vicVO;
 	private RecVO recVO;
+	
+	
+	
+	
+	public VicVO getVicVO() {
+		return vicVO;
+	}
+	public void setVicVO(VicVO vicVO) {
+		this.vicVO = vicVO;
+	}
 	public int getMatchSeq() {
 		return matchSeq;
 	}
 	public void setMatchSeq(int matchSeq) {
 		this.matchSeq = matchSeq;
 	}
-	public int getGameSeq() {
-		return gameSeq;
-	}
-	public void setGameSeq(int gameSeq) {
-		this.gameSeq = gameSeq;
-	}
+
 	public String getMatchStarttime() {
 		return matchStarttime;
 	}
@@ -42,12 +47,7 @@ public class MatchVO {
 	public void setMatchAwayteam(String matchAwayteam) {
 		this.matchAwayteam = matchAwayteam;
 	}
-	public String getMatchVsrecord() {
-		return matchVsrecord;
-	}
-	public void setMatchVsrecord(String matchVsrecord) {
-		this.matchVsrecord = matchVsrecord;
-	}
+
 	public String getMatchStadium() {
 		return matchStadium;
 	}
@@ -59,18 +59,6 @@ public class MatchVO {
 	}
 	public void setMatchStatus(String matchStatus) {
 		this.matchStatus = matchStatus;
-	}
-	public int getUserSeq() {
-		return userSeq;
-	}
-	public void setUserSeq(int userSeq) {
-		this.userSeq = userSeq;
-	}
-	public RankVO getRankVO() {
-		return rankVO;
-	}
-	public void setRankVO(RankVO rankVO) {
-		this.rankVO = rankVO;
 	}
 	public RecVO getRecVO() {
 		return recVO;

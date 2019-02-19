@@ -2,6 +2,7 @@ package com.biz.bestoapi;
 
 public class RecVO {
 	int matchSeq;
+	
 	int recoderate00;
 	int recoderate10;
 	int recoderate20;
@@ -9,6 +10,8 @@ public class RecVO {
 	int recoderate22;
 	int recoderate01;
 	int recoderate02;
+	
+	
 	public int getMatchSeq() {
 		return matchSeq;
 	}

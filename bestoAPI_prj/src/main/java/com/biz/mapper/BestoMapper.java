@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.biz.bestoapi.MatchVO;
 import com.biz.bestoapi.RankVO;
 
 @Mapper
 public interface BestoMapper {
 	public ArrayList<RankVO> select();
+	public ArrayList<MatchVO> matchList();
 }
