@@ -24,7 +24,6 @@
    </resultMap>
    
    
-   
 <resultMap id="match_11" type="com.biz.bestoapi.MatchVO" extends="matchMap">
       <association property="vicVO" resultMap="vicMap"></association>
       <association property="recVO" resultMap="recMap"></association>
@@ -39,7 +38,7 @@
    </resultMap>
    
    <resultMap id="vicMap" type="com.biz.bestoapi.VicVO">
-
+<id property="matchSeq" column="MATCH_SEQ" />
       <result property="victoryrateWin" column="VICTORYRATE_WIN" />
       <result property="victoryrateDraw" column="VICTORYRATE_DRAW" />
       <result property="victoryrateLose" column="VICTORYRATE_LOSE" />
@@ -47,7 +46,7 @@
    </resultMap>
 
       <resultMap id="recMap" type="com.biz.bestoapi.RecVO">
-  
+  		<id property="matchSeq" column="MATCH_SEQ" />
       <result property="recoderate00" column="RECODERATE_00" />
       <result property="recoderate10" column="RECODERATE_10" />
       <result property="recoderate20" column="RECODERATE_20" />
