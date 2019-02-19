@@ -52,22 +52,23 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/recordcrawling.do", method = RequestMethod.GET)
-	public void recordcrawling(@RequestParam("team1") String team1,@RequestParam("team2") String team2 ,HttpServletResponse response) {
-		
+	public void recordcrawling() {
+		System.out.println("°³¾¾¹ß¾Æ");
 //		ModelAndView mav = new ModelAndView();
 //		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
 //		mav.addObject("KEY_BRLIST", brlist);
 //		mav.setViewName("board/admin_board_list");
+		try {
 		Gson gson = new Gson();
 		ArrayList<String> vslist = new ArrayList<String>();
-		System.out.println(team1);
-		System.out.println(team2);
+		
+		String team1 = "4222";
+		String team2 = "4080";
 		
 		String url = "http://www.betman.co.kr/sportsMatchRecord.so?method=inquireMatchRecord&item=SC&league=52&id=1&seq=&teamId1="+ team1 +"&teamId2="+ team2 +"&isToto=&viewType=recent";
 		
 		System.out.println(url);
 		
-		try {
 			Document doc = Jsoup.connect(url).get();
 			Elements element = doc.select("#resultTeams > div > div > div > div.dataH02WarpSet > div > table > tbody > tr");
 			
@@ -92,9 +93,10 @@ public class MainController {
 			}
 			
 			String json = gson.toJson(vsvo);
+//			PrintWriter out = response.getWriter();
+//			response.setContentType("application/json; encoding=UTF-8");
+//			out.println(json);
 			
-			PrintWriter out = response.getWriter();
-			out.println(json);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

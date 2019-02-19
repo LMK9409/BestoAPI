@@ -10,6 +10,6 @@ public interface BestoService {
 //	public ArrayList<BoardReplyVO> svcAdminReplySelect(int bseq);
 	public ArrayList<RankVO> ranklist();
 	public ArrayList<MatchVO> matchList();
-
+	
 	
 }
