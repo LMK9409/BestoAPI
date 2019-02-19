@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -51,7 +52,7 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/recordcrawling.do", method = RequestMethod.GET)
-	public String recordcrawling() {
+	public void recordcrawling(@RequestParam("team1") String team1,@RequestParam("team2") String team2 ,HttpServletResponse response) {
 		
 //		ModelAndView mav = new ModelAndView();
 //		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
@@ -59,11 +60,13 @@ public class MainController {
 //		mav.setViewName("board/admin_board_list");
 		Gson gson = new Gson();
 		ArrayList<String> vslist = new ArrayList<String>();
-		
-		String team1 = "4087";
-		String team2 = "4693";
+		System.out.println(team1);
+		System.out.println(team2);
 		
 		String url = "http://www.betman.co.kr/sportsMatchRecord.so?method=inquireMatchRecord&item=SC&league=52&id=1&seq=&teamId1="+ team1 +"&teamId2="+ team2 +"&isToto=&viewType=recent";
+		
+		System.out.println(url);
+		
 		try {
 			Document doc = Jsoup.connect(url).get();
 			Elements element = doc.select("#resultTeams > div > div > div > div.dataH02WarpSet > div > table > tbody > tr");
@@ -90,31 +93,11 @@ public class MainController {
 			
 			String json = gson.toJson(vsvo);
 			
-			System.out.println(json);
-			
-//			System.out.println("=========================================");
-//			System.out.println(vsvo.getSeason() + "½ÃÁð");
-//			System.out.println("=========================================");
-//			System.out.println(vsvo.getHomeTeam());
-//			System.out.println(vsvo.getHomeSeasonrecord());
-//			System.out.println(vsvo.getHomeRecentrecord());
-//			System.out.println(vsvo.getHomeMatchhistory());
-//			System.out.println(vsvo.getHomeGoalandloss());
-//			System.out.println(vsvo.getHomeGoalavg());
-//			System.out.println("=========================================");
-//			System.out.println(vsvo.getAwayTeam());
-//			System.out.println(vsvo.getAwaySeasonrecord());
-//			System.out.println(vsvo.getAwayRecentrecord());
-//			System.out.println(vsvo.getAwayMatchhistory());
-//			System.out.println(vsvo.getAwayGoalandloss());
-//			System.out.println(vsvo.getAwayGoalavg());
-//			System.out.println("=========================================");
-			
+			PrintWriter out = response.getWriter();
+			out.println(json);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		return "main";
 	}
 	
 	@RequestMapping(value="/matchplan.do", method = RequestMethod.GET)
