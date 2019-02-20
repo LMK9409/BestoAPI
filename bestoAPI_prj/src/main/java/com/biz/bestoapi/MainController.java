@@ -48,13 +48,15 @@ public class MainController {
 	}
 
 
-	@RequestMapping(value="/recordcrawling.do", method = RequestMethod.GET)
+	@RequestMapping(value="/vs.do", method = RequestMethod.GET)
 	public void recordcrawling(
 			HttpServletRequest request,HttpServletResponse response,
 			@RequestParam(value="team1") String team1,@RequestParam(value="team2") String team2) {
 
 		Gson gson = new Gson();
 		ArrayList<String> vslist = new ArrayList<String>();
+		System.out.println(team1);
+		System.out.println(team2);
 
 		String url = "http://www.betman.co.kr/sportsMatchRecord.so?method=inquireMatchRecord&item=SC&league=52&id=1&seq=&teamId1="+ team1 +"&teamId2="+ team2 +"&isToto=&viewType=recent";
 
