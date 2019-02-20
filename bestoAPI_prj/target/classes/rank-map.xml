@@ -62,7 +62,7 @@
     </select>
     
     <select id="matchList" resultMap="match_11">
-          select m.match_seq,m.match_hometeam,m.match_awayteam,m.match_stadium,m.match_starttime,
+          select m.match_seq,r.match_seq,v.match_seq,m.match_hometeam,m.match_awayteam,m.match_stadium,m.match_starttime,
 						r.recoderate_00,r.recoderate_01,r.recoderate_02,r.recoderate_10,r.recoderate_11,r.recoderate_20,r.recoderate_22,
             v.victoryrate_win,v.victoryrate_draw,v.victoryrate_lose
 			from matchdata m, recoderate r, victoryrate v

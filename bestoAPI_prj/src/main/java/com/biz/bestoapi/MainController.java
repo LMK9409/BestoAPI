@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -51,7 +52,9 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/recordcrawling.do", method = RequestMethod.GET)
-	public String recordcrawling() {
+	public void recordcrawling(
+			HttpServletRequest request,HttpServletResponse response,
+			@RequestParam(value="team1") String team1,@RequestParam(value="team2") String team2) {
 		
 //		ModelAndView mav = new ModelAndView();
 //		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
@@ -60,11 +63,14 @@ public class MainController {
 		Gson gson = new Gson();
 		ArrayList<String> vslist = new ArrayList<String>();
 		
-		String team1 = "4087";
-		String team2 = "4693";
+		System.out.println(team1);
+		System.out.println(team2);
 		
+
 		String url = "http://www.betman.co.kr/sportsMatchRecord.so?method=inquireMatchRecord&item=SC&league=52&id=1&seq=&teamId1="+ team1 +"&teamId2="+ team2 +"&isToto=&viewType=recent";
 		try {
+			response.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("UTF-8");
 			Document doc = Jsoup.connect(url).get();
 			Elements element = doc.select("#resultTeams > div > div > div > div.dataH02WarpSet > div > table > tbody > tr");
 			
@@ -89,7 +95,11 @@ public class MainController {
 			}
 			
 			String json = gson.toJson(vsvo);
+			response.setContentType("application/json; encoding=UTF-8");
+			PrintWriter out = response.getWriter();
 			
+			System.out.println("오오 된다되");
+			out.println(json);
 			System.out.println(json);
 			
 //			System.out.println("=========================================");
@@ -114,7 +124,6 @@ public class MainController {
 			e.printStackTrace();
 		}
 		
-		return "main";
 	}
 	
 	@RequestMapping(value="/matchplan.do", method = RequestMethod.GET)
