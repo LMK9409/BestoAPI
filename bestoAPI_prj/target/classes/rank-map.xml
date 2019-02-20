@@ -47,13 +47,13 @@
 
       <resultMap id="recMap" type="com.biz.bestoapi.RecVO">
   		<id property="matchSeq" column="MATCH_SEQ" />
-      <result property="recoderate_00" column="RECODERATE_00" />
-      <result property="recoderate_10" column="RECODERATE_10" />
-      <result property="recoderate_20" column="RECODERATE_20" />
-      <result property="recoderate_11" column="RECODERATE_11" />
-      <result property="recoderate_22" column="RECODERATE_22" /> 
-      <result property="recoderate_01" column="RECODERATE_01" /> 
-      <result property="recoderate_02" column="RECODERATE_02" /> 
+      <result property="recoderate00" column="RECODERATE_00" />
+      <result property="recoderate10" column="RECODERATE_10" />
+      <result property="recoderate20" column="RECODERATE_20" />
+      <result property="recoderate11" column="RECODERATE_11" />
+      <result property="recoderate22" column="RECODERATE_22" /> 
+      <result property="recoderate01" column="RECODERATE_01" /> 
+      <result property="recoderate02" column="RECODERATE_02" /> 
    </resultMap>
 
    

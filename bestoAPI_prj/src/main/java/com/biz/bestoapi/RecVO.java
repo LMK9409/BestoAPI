@@ -3,61 +3,61 @@ package com.biz.bestoapi;
 public class RecVO {
 	int matchSeq;
 	
-	Float recoderate_00;
-	Float recoderate_10;
-	Float recoderate_20;
-	Float recoderate_11;
-	Float recoderate_22;
-	Float recoderate_01;
-	Float recoderate_02;
+	Float recoderate00;
+	Float recoderate10;
+	Float recoderate20;
+	Float recoderate11;
+	Float recoderate22;
+	Float recoderate01;
+	Float recoderate02;
 	public int getMatchSeq() {
 		return matchSeq;
 	}
 	public void setMatchSeq(int matchSeq) {
 		this.matchSeq = matchSeq;
 	}
-	public Float getRecoderate_00() {
-		return recoderate_00;
+	public Float getRecoderate00() {
+		return recoderate00;
 	}
-	public void setRecoderate_00(Float recoderate_00) {
-		this.recoderate_00 = recoderate_00;
+	public void setRecoderate00(Float recoderate00) {
+		this.recoderate00 = recoderate00;
 	}
-	public Float getRecoderate_10() {
-		return recoderate_10;
+	public Float getRecoderate10() {
+		return recoderate10;
 	}
-	public void setRecoderate_10(Float recoderate_10) {
-		this.recoderate_10 = recoderate_10;
+	public void setRecoderate10(Float recoderate10) {
+		this.recoderate10 = recoderate10;
 	}
-	public Float getRecoderate_20() {
-		return recoderate_20;
+	public Float getRecoderate20() {
+		return recoderate20;
 	}
-	public void setRecoderate_20(Float recoderate_20) {
-		this.recoderate_20 = recoderate_20;
+	public void setRecoderate20(Float recoderate20) {
+		this.recoderate20 = recoderate20;
 	}
-	public Float getRecoderate_11() {
-		return recoderate_11;
+	public Float getRecoderate11() {
+		return recoderate11;
 	}
-	public void setRecoderate_11(Float recoderate_11) {
-		this.recoderate_11 = recoderate_11;
+	public void setRecoderate11(Float recoderate11) {
+		this.recoderate11 = recoderate11;
 	}
-	public Float getRecoderate_22() {
-		return recoderate_22;
+	public Float getRecoderate22() {
+		return recoderate22;
 	}
-	public void setRecoderate_22(Float recoderate_22) {
-		this.recoderate_22 = recoderate_22;
+	public void setRecoderate22(Float recoderate22) {
+		this.recoderate22 = recoderate22;
 	}
-	public Float getRecoderate_01() {
-		return recoderate_01;
+	public Float getRecoderate01() {
+		return recoderate01;
 	}
-	public void setRecoderate_01(Float recoderate_01) {
-		this.recoderate_01 = recoderate_01;
+	public void setRecoderate01(Float recoderate01) {
+		this.recoderate01 = recoderate01;
 	}
-	public Float getRecoderate_02() {
-		return recoderate_02;
+	public Float getRecoderate02() {
+		return recoderate02;
 	}
-	public void setRecoderate_02(Float recoderate_02) {
-		this.recoderate_02 = recoderate_02;
+	public void setRecoderate02(Float recoderate02) {
+		this.recoderate02 = recoderate02;
 	}
-
+	
 	
 }
