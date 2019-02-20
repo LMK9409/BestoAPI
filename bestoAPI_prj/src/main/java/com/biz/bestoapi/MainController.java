@@ -41,6 +41,7 @@ public class MainController {
 			ArrayList<MatchVO> list = bestoService.matchList();
 			String res=gson.toJson(list);
 			System.out.println(res);
+			
 			response.setContentType("application/json; encoding=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println(res);
@@ -98,12 +99,12 @@ public class MainController {
 			response.setContentType("application/json; encoding=UTF-8");
 			PrintWriter out = response.getWriter();
 			
-			System.out.println("¿À¿À µÈ´ÙµÇ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½È´Ùµï¿½");
 			out.println(json);
 			System.out.println(json);
 			
 //			System.out.println("=========================================");
-//			System.out.println(vsvo.getSeason() + "½ÃÁð");
+//			System.out.println(vsvo.getSeason() + "ï¿½ï¿½ï¿½ï¿½");
 //			System.out.println("=========================================");
 //			System.out.println(vsvo.getHomeTeam());
 //			System.out.println(vsvo.getHomeSeasonrecord());
@@ -136,16 +137,26 @@ public class MainController {
 			String res=gson.toJson(list);
 			System.out.println(res);
 			PrintWriter out = response.getWriter();
-			
-			
 			out.println(res);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+//	@RequestMapping(value="/alist.do", method = RequestMethod.GET)
+//	public ModelAndView rankList() {
+//		ModelAndView mav = new ModelAndView();	
+//		ArrayList<RankVO> list = bestoService.ranklist();
+//		mav.addObject("KEY_LIST", list);
+//		mav.setViewName("board_manager_game_create");
+//		return mav;
+//		
+////			String res=gson.toJson(list);
+////			System.out.println(res);
+////			PrintWriter out = response.getWriter();
+////			out.println(res);
+//	}
 	@RequestMapping(value="/rankinfo.do", method = RequestMethod.GET)
 	public void rankinfo(HttpServletRequest request,HttpServletResponse response) {
 		try {
