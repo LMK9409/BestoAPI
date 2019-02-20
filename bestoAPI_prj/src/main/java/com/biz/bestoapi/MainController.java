@@ -155,6 +155,7 @@ public class MainController {
 			ArrayList<RankVO> list = bestoService.ranklist();
 			String res=gson.toJson(list);
 			System.out.println(res);
+			response.setContentType("application/json; encoding=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println(res);
 
