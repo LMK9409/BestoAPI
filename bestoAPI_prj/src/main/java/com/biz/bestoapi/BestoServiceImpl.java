@@ -10,27 +10,7 @@ import com.biz.mapper.BestoMapper;
 
 @Service
 public  class BestoServiceImpl implements BestoService {
-	
-	@Autowired
-	BestoMapper bestomapper;
-	
-	
-	@Override
-	public ArrayList<RankVO> ranklist(){
-		return bestomapper.select();
-	}
-
-
-	@Override
-	public ArrayList<MatchVO> matchList() {
-		// TODO Auto-generated method stub
-		return bestomapper.matchList();
-	}
-
-
-
-
-
-
-
+	@Autowired BestoMapper bestomapper;
+	@Override public ArrayList<RankVO> ranklist(){return bestomapper.select();}
+	@Override public ArrayList<MatchVO> matchList() {return bestomapper.matchList();}
 }
