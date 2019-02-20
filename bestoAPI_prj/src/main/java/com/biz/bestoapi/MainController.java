@@ -51,14 +51,11 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping(value="/recordcrawling.do", method = RequestMethod.GET)
-	public void recordcrawling() {
-		System.out.println("°³¾¾¹ß¾Æ");
-//		ModelAndView mav = new ModelAndView();
-//		ArrayList<BoardVO> brlist = boardService.svcAdminBoardList();
-//		mav.addObject("KEY_BRLIST", brlist);
-//		mav.setViewName("board/admin_board_list");
+	@RequestMapping(value="/vs.do", method = RequestMethod.GET)
+	public void recordcrawling(HttpServletRequest request,HttpServletResponse response) {
 		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		ArrayList<String> vslist = new ArrayList<String>();
 		
@@ -66,6 +63,7 @@ public class MainController {
 		String team2 = "4080";
 		
 		String url = "http://www.betman.co.kr/sportsMatchRecord.so?method=inquireMatchRecord&item=SC&league=52&id=1&seq=&teamId1="+ team1 +"&teamId2="+ team2 +"&isToto=&viewType=recent";
+		
 		
 		System.out.println(url);
 		
@@ -93,9 +91,11 @@ public class MainController {
 			}
 			
 			String json = gson.toJson(vsvo);
-//			PrintWriter out = response.getWriter();
-//			response.setContentType("application/json; encoding=UTF-8");
-//			out.println(json);
+			System.out.println(json);
+			
+			PrintWriter out = response.getWriter();
+			response.setContentType("application/json; encoding=UTF-8");
+			out.println(json);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
