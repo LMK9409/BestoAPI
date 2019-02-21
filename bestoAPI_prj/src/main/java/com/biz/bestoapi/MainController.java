@@ -63,7 +63,6 @@ public class MainController {
 				else if(i == 19) vsvo.setHomeGoalavg(vslist.get(i));
 				else if(i == 21) vsvo.setAwayGoalavg(vslist.get(i));
 			}
-			
 		}catch (IOException e) {e.printStackTrace();}
 			return vsvo;
 	}
