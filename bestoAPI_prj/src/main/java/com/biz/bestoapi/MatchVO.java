@@ -11,8 +11,8 @@ public class MatchVO {
 	
 	private int matchSeq;
 	private String matchStarttime;
-	private String matchHometeam;
-	private String matchAwayteam;
+	private int matchHometeam;
+	private int matchAwayteam;
 	private String matchStadium;
 	private String matchStatus;
 	private VicVO vicVO;
@@ -40,16 +40,16 @@ public class MatchVO {
 	public void setMatchStarttime(String matchStarttime) {
 		this.matchStarttime = matchStarttime;
 	}
-	public String getMatchHometeam() {
+	public int getMatchHometeam() {
 		return matchHometeam;
 	}
-	public void setMatchHometeam(String matchHometeam) {
+	public void setMatchHometeam(int matchHometeam) {
 		this.matchHometeam = matchHometeam;
 	}
-	public String getMatchAwayteam() {
+	public int getMatchAwayteam() {
 		return matchAwayteam;
 	}
-	public void setMatchAwayteam(String matchAwayteam) {
+	public void setMatchAwayteam(int matchAwayteam) {
 		this.matchAwayteam = matchAwayteam;
 	}
 
