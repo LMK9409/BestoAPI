@@ -62,12 +62,14 @@
     </select>
 
     <select id="matchList" resultMap="match_11">
-          select m.match_seq,r.match_seq,v.match_seq,m.match_hometeam,m.match_awayteam,m.match_stadium,m.match_starttime,
+select m.match_seq,r.match_seq,v.match_seq,t1.t_name as match_hometeam,t2.t_name as match_awayteam,m.match_stadium,m.match_starttime,
 						r.recoderate_00,r.recoderate_01,r.recoderate_02,r.recoderate_10,r.recoderate_11,r.recoderate_20,r.recoderate_22,
             v.victoryrate_win,v.victoryrate_draw,v.victoryrate_lose
-			from matchdata m, recoderate r, victoryrate v
+			from matchdata m, recoderate r, victoryrate v,team t1,team t2
 			where m.match_seq=r.match_seq 
 						and m.match_seq = v.match_seq
+            and m.match_awayteam=t2.t_code
+            and m.match_hometeam=t1.t_code
 			order by m.match_starttime desc
     </select>
 
